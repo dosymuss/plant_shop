@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import AuthButton from "../../../ui/AuthButton/AuthButton";
 import AuthSwitchText from "../../../ui/AuthSwitchText/AuthSwitchText";
@@ -23,6 +23,7 @@ const StyledLink = styled(Link).attrs({ to: "/confirm" })`
 `;
 
 const LoginForm = ({ click, setClick }) => {
+  const navigate = useNavigate();
   return (
     <div style={{ width: "450px" }}>
       <AuthTitleDesc
@@ -33,7 +34,7 @@ const LoginForm = ({ click, setClick }) => {
         <Input placeholder={"Email"} type={"text"} />
         <Input placeholder={"Password"} type={"password"} />
         <StyledLink>Forgot password</StyledLink>
-        <AuthButton text={"Enter"} />
+        <AuthButton onClick={() => navigate("/main")} text={"Enter"} />
       </InpForm>
       <OrLoyaut />
       <AuthSwitchText
